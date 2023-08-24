@@ -1,11 +1,16 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine($"{GetCountDistinctSubstrings("aabab",3)}");
-Console.WriteLine($"{GetCountDistinctSubstrings("abcc", 2)}");
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace KStringLibrary;
+
+public static class KStringClass
+{
 
 
-
-
-static int GetCountDistinctSubstrings(string inputString, int k)
+    public  static int GetCountDistinctSubstrings(string inputString, int k)
     {
         List<string> distinctSubstrings = new List<string>();
 
@@ -20,12 +25,10 @@ static int GetCountDistinctSubstrings(string inputString, int k)
             string substring = inputString.Substring(i, k);
             if (!distinctSubstrings.Contains(substring))
             {
-                if(!HasRepeatingCharacters(substring))
+                if (!HasRepeatingCharacters(substring))
                     distinctSubstrings.Add(substring);
             }
         }
-
-        
 
         return distinctSubstrings.Count;
     }
@@ -40,3 +43,5 @@ static int GetCountDistinctSubstrings(string inputString, int k)
     }
 
 
+
+}
